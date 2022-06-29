@@ -1,8 +1,9 @@
 import React from 'react';
+import { MovieListDisplay } from './Components/MovieListDisplay';
 function App() {
   return (
     <div>
-      <h3>Hello World</h3>
+      <MovieListDisplay />
     </div>
   );
 }
