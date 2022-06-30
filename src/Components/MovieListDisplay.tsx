@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import style from './styles/style.module.scss';
 import { POPULAR_FILMS, IMAGE_URL, MOVIE_ID, KEY, LANGUAGE, PAGE } from '../Constants/Constants';
 import { IMovieProps } from '../Interfaces/IMovieProps';
 
@@ -22,17 +23,21 @@ export const MovieListDisplay: React.FC = () => {
 
     const ItemList = state.map(({ id, original_title, overview, poster_path, release_date, vote_average }) => {
         return (
-            <div key={id}>
-                <img src={`${IMAGE_URL}` + poster_path} alt={original_title} style={{ width: 210, height: 300 }} />
-                <h5>{original_title}</h5>
-                <i>{overview}</i>
-                <h6>{release_date}</h6>
-                <h5>{vote_average}</h5>
+            <div key={id} className={style.wrapper}>
+                <div className={style.content}>
+                    <img src={`${IMAGE_URL}` + poster_path} alt={original_title} className={style.img} />
+                    <div className={style.overview}>
+                        <h5 className={style.original_title}>{original_title}</h5>
+                        <i>{overview}</i>
+                    </div>
+                </div>
+                <h4 className={style.release_date}>{`Release ${release_date}`}</h4>
+                <h5 className={style.rating}>{`Rating ${vote_average}`}</h5>
             </div>
         )
     })
     return (
-        <div>
+        <div className={style.container}>
             {ItemList}
         </div>
     );

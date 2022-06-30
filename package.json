@@ -8,7 +8,6 @@
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
-    "@types/node": "^16.11.41",
     "@types/react": "^18.0.14",
     "@types/react-dom": "^18.0.5",
     "react": "^18.2.0",
@@ -23,7 +22,11 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build:css": "node-sass src/ -o src/ ",
+    "watch:css": "npm run build:css && node-sass src/ -o src/ -w -r",
+    "start:js": "react-scripts-ts start",
+    "build:js": "react-scripts-ts build"
   },
   "eslintConfig": {
     "extends": [
@@ -47,7 +50,8 @@
   "main": "index.js",
   "devDependencies": {
     "axios": "^0.27.2",
-    "gh-pages": "^4.0.0"
+    "gh-pages": "^4.0.0",
+    "node-sass": "^6.0.1"
   },
   "author": "",
   "license": "ISC"
