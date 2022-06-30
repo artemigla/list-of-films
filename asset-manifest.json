@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/list-of-fims/static/js/main.fe073a86.js",
+    "main.js": "/list-of-fims/static/js/main.4ee2cd7e.js",
     "index.html": "/list-of-fims/index.html",
-    "main.fe073a86.js.map": "/list-of-fims/static/js/main.fe073a86.js.map"
+    "main.4ee2cd7e.js.map": "/list-of-fims/static/js/main.4ee2cd7e.js.map"
   },
   "entrypoints": [
-    "static/js/main.fe073a86.js"
+    "static/js/main.4ee2cd7e.js"
   ]
 }
