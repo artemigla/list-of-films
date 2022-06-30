@@ -1,4 +1,5 @@
 {
+  "homepage": "https://artemigla.github.io/list-of-fims/",
   "name": "list-of-films",
   "version": "0.1.0",
   "private": true,
@@ -19,6 +20,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -43,7 +46,8 @@
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
   "devDependencies": {
-    "axios": "^0.27.2"
+    "axios": "^0.27.2",
+    "gh-pages": "^4.0.0"
   },
   "author": "",
   "license": "ISC"

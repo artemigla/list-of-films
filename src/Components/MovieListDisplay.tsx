@@ -1,23 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { POPULAR_FILMS, KEY, LANGUAGE, PAGE } from '../Constants/Constants';
-
-interface MovieListDisplayProps {
-    id: number,
-    original_title: string,
-    overview: string,
-    poster_path: string,
-    release_date: string,
-    vote_average: number
-}
+import { POPULAR_FILMS, IMAGE_URL, MOVIE_ID, KEY, LANGUAGE, PAGE } from '../Constants/Constants';
+import { IMovieProps } from '../Interfaces/IMovieProps';
 
 export const MovieListDisplay: React.FC = () => {
-    const [state, setState] = useState<MovieListDisplayProps[]>([]);
+    const [state, setState] = useState<IMovieProps[]>([]);
+
     const GetAListOfMovies = async () => {
-        await axios.get(`${POPULAR_FILMS}${KEY}&${LANGUAGE}&page=${PAGE}`)
-            .then(response => response.data)
-            .then(response => setState(response.results))
-            .catch(err => alert(err));
+        try {
+            await axios.get(`${POPULAR_FILMS}${MOVIE_ID}?api_key=${KEY}&language=${LANGUAGE}&page=${PAGE}`)
+                .then(response => response.data)
+                .then(response => setState(response.results))
+        } catch (error) {
+            alert(error)
+        }
     }
 
     useEffect(() => {
@@ -27,7 +23,7 @@ export const MovieListDisplay: React.FC = () => {
     const ItemList = state.map(({ id, original_title, overview, poster_path, release_date, vote_average }) => {
         return (
             <div key={id}>
-                <img src={poster_path} alt="" style={{ width: 120, height: 120 }} />
+                <img src={`${IMAGE_URL}` + poster_path} alt={original_title} style={{ width: 210, height: 300 }} />
                 <h5>{original_title}</h5>
                 <i>{overview}</i>
                 <h6>{release_date}</h6>
