@@ -21,24 +21,31 @@ export const MovieListDisplay: React.FC = () => {
         GetAListOfMovies()
     }, []);
 
-    const ItemList = state.map(({ id, original_title, overview, poster_path, release_date, vote_average }) => {
-        return (
-            <div key={id} className={style.wrapper}>
-                <div className={style.content}>
-                    <img src={`${IMAGE_URL}` + poster_path} alt={original_title} className={style.img} />
-                    <div className={style.overview}>
-                        <h5 className={style.original_title}>{original_title}</h5>
-                        <i>{overview}</i>
-                    </div>
-                </div>
-                <h4 className={style.release_date}>{`Release ${release_date}`}</h4>
-                <h5 className={style.rating}>{`Rating ${vote_average}`}</h5>
-            </div>
-        )
-    })
     return (
         <div className={style.container}>
-            {ItemList}
+            <div className={style.listOfMovies}>
+                {state.map(({ id, original_title, overview, poster_path, release_date, vote_average }) => {
+                    return (
+                        <div key={id} className={style.wrapper}>
+                            <div className={style.content}>
+                                <img src={`${IMAGE_URL}` + poster_path} alt={original_title} className={style.img} />
+                                <div className={style.overview}>
+                                    <h5 className={style.original_title}>{original_title}</h5>
+                                    <i>{overview}</i>
+                                </div>
+                            </div>
+                            <h4 className={style.release_date}>{`Release ${release_date}`}</h4>
+                            <h5 className={style.rating}>{`Rating ${vote_average}`}</h5>
+                        </div>
+                    )
+                })}
+            </div>
+            <div className={style.rightcontent}>
+                <input type="text" />
+                <select name="" id="">
+                    <option value="">Sort</option>
+                </select>
+            </div>
         </div>
     );
 }

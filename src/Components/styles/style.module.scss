@@ -4,41 +4,54 @@
 }
 
 .container {
+    margin-top: 25vh;
+    position: absolute;
+    background-color: aqua;
     display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+.rightcontent {
+    margin-top: 10px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+.rightcontent>select,
+input {
+    width: 50%;
+}
+
+.listOfMovies {
+    display: grid;
+    margin-top: 10px;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
+    border: 1px solid black;
 }
 
 .wrapper {
+    display: grid;
     border: 1px solid black;
-    display: grid;
-    grid-column: 1fr 1fr;
-}
-
-.content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 0px 10px 10px;
+    background-color: aliceblue;
 }
 
 .img {
-    margin: auto;
-    margin-top: 10px;
     width: 210px;
-    height: 300px;
-}
-
-.overview {
-    margin-top: 10px;
+    height: 350px;
+    display: flex;
+    margin: auto;
 }
 
 .original_title {
-    font-size: 17px;
-}
-
-.release_date {
-    margin-left: 17px;
+    font-size: large;
+    text-align: center;
 }
 
 .rating {
-    margin-left: 17px;
+    text-align: center;
 }
