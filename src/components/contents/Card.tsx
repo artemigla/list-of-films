@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import style from './styles/style.module.scss';
-import { POPULAR_FILMS, IMAGE_URL, MOVIE_ID, KEY, LANGUAGE, PAGE } from '../Constants/Constants';
-import { IMovieProps } from '../Interfaces/IMovieProps';
+import { POPULAR_FILMS, IMAGE_URL, MOVIE_ID, KEY, LANGUAGE, PAGE } from '../../constants/Constants';
+import { IMovieProps } from '../../Interfaces/IMovieProps';
 
-export const MovieListDisplay: React.FC = () => {
+export const Card: React.FC = () => {
     const [state, setState] = useState<IMovieProps[]>([]);
 
     const GetAListOfMovies = async () => {
@@ -23,6 +23,7 @@ export const MovieListDisplay: React.FC = () => {
 
     return (
         <div className={style.container}>
+
             <div className={style.listOfMovies}>
                 {state.map(({ id, original_title, overview, poster_path, release_date, vote_average }) => {
                     return (

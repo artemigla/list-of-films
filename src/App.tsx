@@ -1,13 +1,16 @@
 import React from 'react';
-import { Header } from './Components/Header/Header';
-import { MovieListDisplay } from './Components/MovieListDisplay';
+import { Header } from './components/Header/Header';
+import { Card } from './components/contents/Card';
+import { Slide } from './components/slide/Slide';
+import './App.css'
+
 function App() {
   return (
     <div>
       <Header />
-      <MovieListDisplay />
+      <Slide />
+      <Card />
     </div>
   );
 }
-
 export default App;

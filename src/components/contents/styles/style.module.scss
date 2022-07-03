@@ -4,9 +4,7 @@
 }
 
 .container {
-    margin-top: 25vh;
     position: absolute;
-    background-color: aqua;
     display: grid;
     grid-template-columns: 3fr 1fr;
 }
@@ -16,8 +14,6 @@
     border: 1px solid black;
     display: flex;
     flex-direction: column;
-
-
 }
 
 .rightcontent>select,
@@ -29,18 +25,18 @@ input {
     display: grid;
     margin-top: 10px;
     grid-template-columns: 1fr 1fr 1fr;
-    border: 1px solid black;
 }
 
 .wrapper {
     display: grid;
-    border: 1px solid black;
+    border-radius: 10px;
     gap: 10px;
     margin: 0px 10px 10px;
-    background-color: aliceblue;
+    background-color: silver;
 }
 
 .img {
+    padding-top: 10px;
     width: 210px;
     height: 350px;
     display: flex;
