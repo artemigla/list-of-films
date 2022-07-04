@@ -23,7 +23,6 @@ export const Card: React.FC = () => {
 
     return (
         <div className={style.container}>
-
             <div className={style.listOfMovies}>
                 {state.map(({ id, original_title, overview, poster_path, release_date, vote_average }) => {
                     return (
@@ -40,12 +39,6 @@ export const Card: React.FC = () => {
                         </div>
                     )
                 })}
-            </div>
-            <div className={style.rightcontent}>
-                <input type="text" />
-                <select name="" id="">
-                    <option value="">Sort</option>
-                </select>
             </div>
         </div>
     );

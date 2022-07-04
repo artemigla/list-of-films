@@ -4,12 +4,7 @@
     position: fixed;
     top: 0;
     width: 100%;
-    height: 10vh;
-    background-color: skyblue;
+    height: 40vh;
+    background-image: url('../../../assets/ImageHeader.jpg');
     z-index: 1;
-}
-
-.wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
 }
