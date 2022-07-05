@@ -4,7 +4,23 @@
     position: fixed;
     top: 0;
     width: 100%;
-    height: 40vh;
+    height: 30vh;
     background-image: url('../../../assets/ImageHeader.jpg');
     z-index: 1;
+}
+
+.headerRigth {
+    display: flexbox;
+}
+
+.selectTheme {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.selectTheme>button {
+    border: none;
+    outline: none;
+    background: transparent;
 }

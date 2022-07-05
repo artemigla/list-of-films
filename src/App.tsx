@@ -4,7 +4,7 @@ import { Card } from './components/contents/Card';
 import { Slide } from './components/slide/Slide';
 import './App.css'
 
-function App() {
+const App: React.FC = () => {
   return (
     <div>
       <Header />
