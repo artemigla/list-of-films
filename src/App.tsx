@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Header } from './components/Header/Header';
 import { Card } from './components/contents/Card';
 import { Slide } from './components/slide/Slide';
 import style from './App.module.scss';
-import { useTheme } from './contexts/ThemeContext';
+import { DarkModeContext } from './contexts/ThemeContext';
 
 const App: React.FC = () => {
-  const { theme } = useTheme();
+  const { mode } = useContext(DarkModeContext);
   return (
-    <div className={style.container} style={{ background: theme['--light'] } as React.CSSProperties}>
+    <div className={style.container} style={{ background: mode['--black'] } as React.CSSProperties}>
       <Header />
       <Slide />
       <Card />

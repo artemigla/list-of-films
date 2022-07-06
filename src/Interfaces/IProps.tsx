@@ -1,6 +1,4 @@
-import { Dispatch, ReactNode, SetStateAction } from "react";
 import { Color } from "../models/color.model";
-import { ButtonType, ThemeType } from "../types/Types";
 
 export interface IMovieProps {
     id: number,
@@ -12,20 +10,18 @@ export interface IMovieProps {
 }
 
 export interface ITheme {
-    '--primary': Color;
     '--light': Color;
     '--black': Color;
+    '--background': Color;
+    isDark: boolean;
 }
 
-export interface IButtonProps {
-    type: ButtonType;
+export interface IDarkModeContext {
+    mode: ITheme;
+    dispatch: React.Dispatch<any>;
+}
+
+export interface InputProps {
     theme: ITheme;
-    onClick: (...args: any[]) => void;
-    children: ReactNode
-}
-
-export interface IThemeContextProps {
-    themeType: ThemeType;
-    theme: ITheme,
-    setCurrentTheme: Dispatch<SetStateAction<ThemeType>>
+    onChange: (...args: any[]) => void;
 }

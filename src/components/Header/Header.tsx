@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
-import style from './styles/style.module.scss';
-import { useTheme } from '../../contexts/ThemeContext';
+import React, { useContext } from "react";
+import style from './styles/style.module.scss'
+import { IDarkModeContext } from "../../Interfaces/IProps";
+import { DarkModeContext } from "../../contexts/ThemeContext";
 
 export const Header: React.FC = () => {
 
-    const [isTrue, setIsTrue] = useState<boolean>(false);
-    const { theme, setCurrentTheme } = useTheme();
+    const theme = useContext(DarkModeContext);
 
-    const toggle = () => {
-        setIsTrue(!isTrue);
-        !isTrue ? setCurrentTheme('dark') : setCurrentTheme('light');
-    }
+    const setTheme = (darkMode: IDarkModeContext) => {
+        const isDark = darkMode.mode.isDark;
+        darkMode.dispatch(!isDark);
+    };
+
     return (
         <header className={style.container}>
             <div className={style.logo}>
@@ -18,9 +19,9 @@ export const Header: React.FC = () => {
             <div>
             </div>
             <label className={style.headerRigth}>
-                <input type="checkbox" value={theme} onInput={toggle} />
+                <input type={'checkbox'} onChange={() => setTheme(theme)} />
                 <span className={style.check} />
             </label>
         </header >
     )
-}
+};

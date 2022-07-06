@@ -1,25 +1,32 @@
-import React, { useState, createContext, useContext } from "react";
-import { THEMES } from './Theme.config'
-import { ThemeType } from '../types/Types';
-import { IThemeContextProps } from "../Interfaces/IProps";
+import React, { Context, createContext, useReducer, useEffect } from "react";
+import { DARK_THEME, LIGHT_THEME } from "../constants/Constants";
+import { IDarkModeContext } from "../Interfaces/IProps";
 
-export const ThemeContext = createContext<IThemeContextProps | any>({
-    themeType: 'light',
-    theme: THEMES['light']
-} as IThemeContextProps);
+const darkModeReducer = (_: any, isDark: boolean) => isDark ? DARK_THEME : LIGHT_THEME;
 
-export const ThemeProvider: React.FC<any> = ({ children }) => {
-    const [currentTheme, setCurrentTheme] = useState<ThemeType>('light');
+const DarkModeContext: Context<IDarkModeContext> = createContext(
+    {} as IDarkModeContext
+);
+
+const initialState = JSON.parse(localStorage.getItem("theme") as string) || LIGHT_THEME;
+
+const DarkModeProvider: React.FC<any> = ({ children }) => {
+    const [mode, dispatch] = useReducer(darkModeReducer, initialState);
+
+    useEffect(() => {
+        localStorage.setItem("theme", JSON.stringify(mode));
+    }, [mode]);
 
     return (
-        <ThemeContext.Provider value={{
-            themeType: currentTheme,
-            theme: THEMES[currentTheme],
-            setCurrentTheme,
-        }}>
+        <DarkModeContext.Provider
+            value={{
+                mode,
+                dispatch
+            }}
+        >
             {children}
-        </ThemeContext.Provider>
-    )
-}
+        </DarkModeContext.Provider>
+    );
+};
 
-export const useTheme = () => useContext(ThemeContext);
+export { DarkModeProvider, DarkModeContext };

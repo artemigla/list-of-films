@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import style from './styles/style.module.scss';
 import { POPULAR_FILMS, IMAGE_URL, MOVIE_ID, KEY, LANGUAGE, PAGE } from '../../constants/Constants';
 import { IMovieProps } from '../../Interfaces/IProps';
-import { useTheme } from '../../contexts/ThemeContext';
+import { DarkModeContext } from '../../contexts/ThemeContext';
 
 export const Card: React.FC = () => {
 
-    const { theme } = useTheme();
+    const { mode } = useContext(DarkModeContext);
     const [state, setState] = useState<IMovieProps[]>([]);
 
     const GetAListOfMovies = async () => {
@@ -25,20 +25,20 @@ export const Card: React.FC = () => {
     }, []);
 
     return (
-        <main className={style.container} style={{ background: theme['--light'] }}>
+        <main className={style.container} style={{ background: mode['--black'] }}>
             <div className={style.listOfMovies}>
                 {state.map(({ id, original_title, overview, poster_path, release_date, vote_average }) => {
                     return (
-                        <div key={id} className={style.wrapper} style={{ background: theme['--light'] }}>
+                        <div key={id} className={style.wrapper} style={{ background: mode['--black'] }}>
                             <div className={style.content}>
                                 <img src={`${IMAGE_URL}` + poster_path} alt={original_title} className={style.img} />
-                                <div style={{ color: theme['--black'] }}>
+                                <div style={{ color: mode['--light'] }}>
                                     <h5 className={style.original_title}>{original_title}</h5>
-                                    <i className={style.overview} style={{ color: theme['--black'] }}>{overview}</i>
+                                    <i className={style.overview} style={{ color: mode['--light'] }}>{overview}</i>
                                 </div>
                             </div>
-                            <h4 className={style.release_date} style={{ color: theme['--black'] }}>{`Release ${release_date}`}</h4>
-                            <h5 className={style.rating} style={{ color: theme['--black'] }}>{`Rating ${vote_average}`}</h5>
+                            <h4 className={style.release_date} style={{ color: mode['--light'] }}>{`Release ${release_date}`}</h4>
+                            <h5 className={style.rating} style={{ color: mode['--light'] }}>{`Rating ${vote_average}`}</h5>
                         </div>
                     )
                 })}
