@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/list-of-films/static/css/main.b15520c4.css",
-    "main.js": "/list-of-films/static/js/main.dc3d0ef7.js",
+    "main.css": "/list-of-films/static/css/main.563b0f9d.css",
+    "main.js": "/list-of-films/static/js/main.171ae4ed.js",
     "static/media/Space.jpg": "/list-of-films/static/media/Space.cc63a981fa8023318b54.jpg",
     "static/media/ImageHeader.jpg": "/list-of-films/static/media/ImageHeader.bab0354d7278b6aace97.jpg",
     "static/media/slick.svg": "/list-of-films/static/media/slick.2630a3e3eab21c607e21.svg",
@@ -9,11 +9,11 @@
     "static/media/slick.ttf": "/list-of-films/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/list-of-films/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/list-of-films/index.html",
-    "main.b15520c4.css.map": "/list-of-films/static/css/main.b15520c4.css.map",
-    "main.dc3d0ef7.js.map": "/list-of-films/static/js/main.dc3d0ef7.js.map"
+    "main.563b0f9d.css.map": "/list-of-films/static/css/main.563b0f9d.css.map",
+    "main.171ae4ed.js.map": "/list-of-films/static/js/main.171ae4ed.js.map"
   },
   "entrypoints": [
-    "static/css/main.b15520c4.css",
-    "static/js/main.dc3d0ef7.js"
+    "static/css/main.563b0f9d.css",
+    "static/js/main.171ae4ed.js"
   ]
 }
