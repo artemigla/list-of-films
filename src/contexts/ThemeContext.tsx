@@ -1,25 +1,25 @@
-import React, { useState, createContext } from "react";
-import { Theme } from '../types/Types'
-type ThemeContext = { theme: Theme; toggleTheme: () => void };
+import React, { useState, createContext, useContext } from "react";
+import { THEMES } from './Theme.config'
+import { ThemeType } from '../types/Types';
+import { IThemeContextProps } from "../Interfaces/IProps";
 
-//eslint-disable-next-line
-export const ThemeContext = createContext<ThemeContext>({} as ThemeContext);
+export const ThemeContext = createContext<IThemeContextProps | any>({
+    themeType: 'light',
+    theme: THEMES['light']
+} as IThemeContextProps);
 
-export const ThemeProvider = ({ children }: any) => {
-    const [theme, setTheme] = useState<Theme>("light");
-    const toggleTheme = () => {
-        setTheme(theme === "light" ? "dark" : "light");
-    };
-
-    const color = theme === "light" ? "#333" : "#FFF";
-    const backgroundColor = theme === "light" ? "#FFF" : "#333";
-
-    document.body.style.color = color;
-    document.body.style.backgroundColor = backgroundColor;
+export const ThemeProvider: React.FC<any> = ({ children }) => {
+    const [currentTheme, setCurrentTheme] = useState<ThemeType>('light');
 
     return (
-        <ThemeContext.Provider value={{ theme, toggleTheme }}>
+        <ThemeContext.Provider value={{
+            themeType: currentTheme,
+            theme: THEMES[currentTheme],
+            setCurrentTheme,
+        }}>
             {children}
         </ThemeContext.Provider>
-    );
+    )
 }
+
+export const useTheme = () => useContext(ThemeContext);

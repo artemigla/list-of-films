@@ -1,19 +1,22 @@
 .container {
-    position: absolute;
+    position: relative;
+    transition: 0.5s;
 }
 
 .listOfMovies {
     display: grid;
     margin-top: 10px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    transition: 0.5s;
 }
 
 .wrapper {
     display: grid;
     border-radius: 10px;
+    box-shadow: 1px 1px 5px 5px rgb(82, 81, 81);
     gap: 10px;
     margin: 0px 10px 10px;
-    background-color: silver;
+    transition: 0.5s;
 }
 
 .img {
@@ -27,8 +30,18 @@
 .original_title {
     font-size: large;
     text-align: center;
+    transition: 0.5s;
 }
 
 .rating {
     text-align: center;
+    transition: 0.5s;
+}
+
+.overview {
+    transition: 0.5s;
+}
+
+.release_date {
+    transition: 0.5s;
 }

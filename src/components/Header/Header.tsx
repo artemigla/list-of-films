@@ -1,24 +1,26 @@
-import React, { useContext } from 'react';
+import React, { useState } from 'react';
 import style from './styles/style.module.scss';
-import { ThemeContext } from '../../contexts/ThemeContext';
-import { FaSun, FaMoon } from 'react-icons/fa';
+import { useTheme } from '../../contexts/ThemeContext';
+
 export const Header: React.FC = () => {
 
-    const { theme, toggleTheme } = useContext(ThemeContext);
+    const [isTrue, setIsTrue] = useState<boolean>(false);
+    const { theme, setCurrentTheme } = useTheme();
 
+    const toggle = () => {
+        setIsTrue(!isTrue);
+        !isTrue ? setCurrentTheme('dark') : setCurrentTheme('light');
+    }
     return (
         <header className={style.container}>
             <div className={style.logo}>
             </div>
             <div>
             </div>
-            <div className={style.headerRigth}>
-                <div className={style.selectTheme}>
-                    <button onClick={toggleTheme}>{theme === 'light' ?
-                        <FaSun size={21} color={'white'} /> :
-                        <FaMoon size={21} color={'white'} />}</button>
-                </div>
-            </div>
+            <label className={style.headerRigth}>
+                <input type="checkbox" value={theme} onInput={toggle} />
+                <span className={style.check} />
+            </label>
         </header >
     )
 }

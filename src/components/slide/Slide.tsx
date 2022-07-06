@@ -4,11 +4,10 @@ import axios from 'axios';
 import style from './styles/style.module.scss';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { IMovieProps } from '../../Interfaces/IMovieProps';
+import { IMovieProps } from '../../Interfaces/IProps';
 import { POPULAR_FILMS, MOVIE_ID, KEY, LANGUAGE, PAGE, IMAGE_URL, SETTINGS } from '../../constants/Constants';
 
 export const Slide: React.FC = () => {
-
     const [state, setState] = useState<IMovieProps[]>([]);
 
     const GetAListOfMovies = async () => {

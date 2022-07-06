@@ -6,7 +6,6 @@ export const LANGUAGE = 'en-US'
 export const PAGE = 1
 
 export const SETTINGS = {
-    dots: true,
     autoplay: true,
     infinite: true,
     slidesToShow: 4,
